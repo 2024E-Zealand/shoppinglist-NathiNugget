@@ -53,3 +53,9 @@ function deleteElementFromList(index, list){
 function changeTextInFirstElement(val){
     document.getElementById("list").children[0].textContent = val;
 }
+
+function countElementsInList(id){
+    let list = document.getElementById(id); 
+    alert("Elements in list: " + list.children.length)
+    return list.children.length; 
+}
