@@ -6,7 +6,8 @@ let idx = 0;
 function createNewLiElement(temp) {
 
     let liElem = document.createElement("li");
-    liElem.setAttribute("id", "swagger");
+    let listElem = document.getElementById('list'); 
+    liElem.setAttribute("id", listElem.children.length);
     let properIdx = idx%fruits.length; 
     if (temp == "healthy") {
         liElem.className = "healthy";
@@ -26,6 +27,20 @@ function addLiElementToList(id, liElem){
     let list = document.getElementById(id); 
     let newElem = liElem; 
     list.appendChild(newElem); 
+}
 
+function changeHealthClass(id){
+    let elem = document.getElementById(id); 
+    if (elem.className == "healthy"){
+        elem.className = "unhealthy"; 
+    }
+    else elem.className = "healthy";
+}
 
+function changeHealthClassOfLastElement(){
+    let list = document.getElementById('list'); 
+    let lastElem = list.children[list.children.length-1]; 
+    if (lastElem.className == "healthy"){
+        lastElem.className = "unhealthy";
+    } else lastElem.className = "healthy"; 
 }
