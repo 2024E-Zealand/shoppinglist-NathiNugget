@@ -44,3 +44,8 @@ function changeHealthClassOfLastElement(){
         lastElem.className = "unhealthy";
     } else lastElem.className = "healthy"; 
 }
+
+function deleteElementFromList(index, list){
+    let listToDeleteFrom = document.getElementById(list); 
+    listToDeleteFrom.removeChild(listToDeleteFrom.children[index]);
+}
