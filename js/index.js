@@ -59,3 +59,13 @@ function countElementsInList(id){
     alert("Elements in list: " + list.children.length)
     return list.children.length; 
 }
+
+function moveElementsToNewList(oldList, newList){
+    let oList = document.getElementById(oldList); 
+    let nList = document.getElementById(newList); 
+    
+    let itemsToMove = Array.from(oList.children).filter(e => e.className == "unhealthy"); 
+    itemsToMove.forEach((element) => {
+        nList.append(element); 
+    });
+}
