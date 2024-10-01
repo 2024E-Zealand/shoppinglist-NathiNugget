@@ -49,3 +49,7 @@ function deleteElementFromList(index, list){
     let listToDeleteFrom = document.getElementById(list); 
     listToDeleteFrom.removeChild(listToDeleteFrom.children[index]);
 }
+
+function changeTextInFirstElement(val){
+    document.getElementById("list").children[0].textContent = val;
+}
