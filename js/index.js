@@ -1,6 +1,7 @@
 //Write your Javascript code here
 console.log("Shoppinglist");
 let fruits = ["Banana", "Apple", "Grapefruit", "Clementine", "Blackberry"]; 
+let badGroceries = ["Marshmellows", "Beer", "Chips", "Soda", "Noodles"]; 
 
 let idx = 0; 
 function createNewLiElement(temp) {
@@ -78,8 +79,16 @@ function createLiElement(text, tList) {
     let properIdx = idx%fruits.length; 
     var textNode = document.createTextNode(text);
     liElem.appendChild(textNode); 
+    if (fruits.includes(text)){
+        liElem.setAttribute('class', 'healthy');
+    } else if (badGroceries.includes(text)){
+        liElem.setAttribute('class','unhealthy');
+    }
     listElem.appendChild(liElem);
-    console.log(listElem);
+    liElem.addEventListener('click', e => {
+        makeInvisible(liElem);
+    });
+    return liElem; 
 }
 
 function addToList(){
@@ -96,6 +105,44 @@ function addBtnEventListener(id){
 
 addBtnEventListener('itemButton');
 
+
+function nextUniqeueNumber(tList){
+    let list = document.getElementById(tList); 
+    let elems = [].slice.call(list.children);
+    let IDlist = [];
+    elems.forEach((elem) => {
+        if (!IDlist.includes(elem.id)){
+            IDlist.push(elem.id);
+            console.log(elem.id);
+        }
+    });
+    return Math.max.apply(null,IDlist) + 1;
+}
+
+function makeInvisible(elem){
+    elem.setAttribute('hidden','true');
+}
+
+function makeVisible(tList){
+    let list = document.getElementById(tList);
+    let col = list.children; 
+    [].slice.call(col).forEach((elem) => {
+        elem.removeAttribute('hidden');
+    });
+}
+
+function addListeners(tList){
+    let list = document.getElementById(tList); 
+    let col = list.children; 
+    console.log([].slice.call(col));
+    [].slice.call(col).forEach((elem) => {
+        elem.addEventListener('click', function() {
+            makeInvisible(elem);
+        }); 
+    });
+}
+
+addListeners('list');
 
 
 
