@@ -27,11 +27,15 @@
   <button onclick="addLiElementToList('list', createNewLiElement('healthy'))">Add new healthy item to list!</button>
   <button onclick="changeHealthClass('3')">Change health of 4th element!</button>
   <button onclick="changeHealthClassOfLastElement()">Change health of last element!</button>
-  <script src="js/index.js"></script>
+  
   <br>
   <input type="text" id="inputField" placeholder="Write index of an element to delete"><button onclick="deleteElementFromList(inputField.value, 'list')">Delete element!</button>
   <button onclick="changeTextInFirstElement('Grapefruit')">Change value of first button</button>
   <button onclick="countElementsInList('list')">Return number of elements in list</button>
   <button onclick="moveElementsToNewList('list', 'listUnhealthy')">Move unhealthy elements to unhealthy list</button>
+  <br>
+  <h2>Add items to list below:</h2>
+  <input type="text" id="InputText"><button id="itemButton">Add item!</button> 
+  <script src="js/index.js"></script>
 </body>
 </html>
